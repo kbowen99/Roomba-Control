@@ -8,12 +8,18 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-
+/**
+ * Extremely Messy/bad java webserver, Mostly POC but it works
+ * TODO: Cleanup/Rewrite
+ * @author Kurtis Bowen (Kbowen99)
+ */
 public class WebServr {
-	private static String ipAddr = Main.ipAddr;
+	private static String ipAddr = Main.ipAddr; //Get IP from Main
 	
 	public WebServr(int port) throws Exception{
+		//Create & Bind Server to Specified Port
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+        //Create all Routes
         server.createContext("/", new Home());
         server.createContext("/w", new Forward());
         server.createContext("/a", new Leftward());
@@ -21,11 +27,13 @@ public class WebServr {
         server.createContext("/d", new Rightward());
         server.createContext("/q", new Brake());
         server.setExecutor(null); // creates a default executor
+        //Start Server with Routes
         server.start();
 	}
 	
 	//Begin Mess
 	
+	//"Home" Page (Root) - Just gives help
 	static class Home implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
@@ -43,6 +51,7 @@ public class WebServr {
         }
     }
     
+	//Forward - Sends 'w' over SerialControl
     static class Forward implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
@@ -55,6 +64,7 @@ public class WebServr {
         }
     }
     
+    //Backward - Sends 's' over SerialControl
     static class Backward implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
@@ -67,6 +77,7 @@ public class WebServr {
         }
     }
     
+    //Leftward - Sends 'a' over SerialControl
     static class Leftward implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
@@ -79,6 +90,7 @@ public class WebServr {
         }
     }
     
+    //RightWard - Sends 'd' over SerialControl
     static class Rightward implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
@@ -91,6 +103,7 @@ public class WebServr {
         }
     }
     
+    //Brake - Sends Stop Command '.' over SerialControl
     static class Brake implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
