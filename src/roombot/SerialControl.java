@@ -55,12 +55,8 @@ public class SerialControl {
 	public void send(String toSend){
 		Main.p("Attempting to send: " + toSend); 
 		try{ //Notice How Port.Open() isn't needed? Thats Important for an arduino
-			outputStream = serialPort.getOutputStream();
-			serialPort.setSerialPortParams(speed, //Most of this isn't needed... TODO: Clean Up SerialConnect.send()
-					SerialPort.DATABITS_8,
-					SerialPort.STOPBITS_1,
-					SerialPort.PARITY_NONE);
 			outputStream.write(toSend.getBytes());
+			Main.p("Sent: " + toSend);
 		} catch (Exception e) { //Hopefully we never get to this point...
 			Main.p("Stuff Happened....");
 			e.printStackTrace();
