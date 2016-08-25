@@ -15,8 +15,11 @@ import com.sun.net.httpserver.HttpServer;
  */
 public class WebServr {
 	private static String ipAddr = Main.ipAddr; //Get IP from Main
+	private static SerialControl ser;
 	
-	public WebServr(int port) throws Exception{
+	public WebServr(int port, SerialControl ser) throws Exception{
+		//obtain serial
+		this.ser = ser;
 		//Create & Bind Server to Specified Port
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         //Create all Routes
@@ -56,7 +59,7 @@ public class WebServr {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String response = Main.p("Moving Forward!").toString();
-            Main.s.send("w");
+            ser.send("w");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
@@ -69,7 +72,7 @@ public class WebServr {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String response = Main.p("Moving Backwards!").toString();
-            Main.s.send("s");
+            ser.send("s");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
@@ -82,7 +85,7 @@ public class WebServr {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String response = Main.p("Rotating Left!").toString();
-            Main.s.send("a");
+            ser.send("a");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
@@ -95,7 +98,7 @@ public class WebServr {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String response = Main.p("Rotating Right!").toString();
-            Main.s.send("d");
+            ser.send("d");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
@@ -108,7 +111,7 @@ public class WebServr {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String response = Main.p("Stopping").toString();
-            Main.s.send(".");
+            ser.send(".");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
