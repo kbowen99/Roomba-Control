@@ -1,0 +1,9 @@
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\bin\Debug\Roomba-Client.exe.config
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\bin\Debug\Roomba-Client.exe
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\bin\Debug\Roomba-Client.pdb
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\obj\Debug\Roomba-Client.csprojResolveAssemblyReference.cache
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\obj\Debug\Roomba_Client.Frm_roomba.resources
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\obj\Debug\Roomba_Client.Properties.Resources.resources
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\obj\Debug\Roomba-Client.csproj.GenerateResource.Cache
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\obj\Debug\Roomba-Client.exe
+C:\Users\Kurtis\Git\Roomba-Control\Roomba-Client\Roomba-Client\Roomba-Client\obj\Debug\Roomba-Client.pdb
